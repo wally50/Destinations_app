@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destinations</title>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+  <div class="banner">
+    <a class ="logo" href="/"><h1>Destinations</h1></a>
+
+    <div class="log_box">
+      <% if logged_in? %>
+        logged in as <%= current_user.email %>
+        <form class="" action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+        </form>
+      <% else %>
+        <div></div>
+        <a href="/login">
+        <button class="login">Login/Sign up</button>
+      <% end %>
+      </a>
+    </div>
+  </div>
+<hr>
+
+  <%= yield %>
+
+</body>
+</html>

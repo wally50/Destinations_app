@@ -1,0 +1,23 @@
+<h2><%= @place.name %></h2>
+
+<img class="show_image" src="<%= @place.image_url %>" alt="">
+<p><%= @place.description %></p>
+<p>Location: <%= @place.locale %></p>
+
+<form class="" action="/places/<%= @place.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete</button>
+</form>
+
+<a href="/places/<%= @place.id %>/edit">Edit</a>
+
+<form action="/comments" method="post">
+  <input type="hidden" name="place_id" value="<%= @place.id %>">
+  <textarea name="body" rows="6" cols="50"></textarea>
+  <button>Post comment</button>
+</form>
+
+<% @comments.each do |comment| %>
+<hr>
+<p><%=  comment.body %></p>
+<% end %>
