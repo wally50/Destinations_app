@@ -107,6 +107,13 @@ post '/users' do
   end
 end
 
+delete '/places/:id' do
+  redirect '/login' unless admin?
+  place = Place.find(params[:id])
+  place.destroy
+  redirect '/'
+end
+
 get '/new_dest' do
   redirect '/login' unless logged_in?
   erb :new_dest
