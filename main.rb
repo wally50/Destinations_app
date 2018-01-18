@@ -14,13 +14,13 @@ helpers do
     User.find_by(id: session[:user_id])
   end
 
-  # def admin?
-  #   if @user_temp == "wv@ga.co" || @user_checker.email == "wv@ga.co"
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+  def admin?
+    if logged_in? && current_user.email == "wv@ga.co"
+      return true
+    else
+      return false
+    end
+  end
 
   def logged_in?
     !!current_user
@@ -65,13 +65,13 @@ get '/places/:id' do
 end
 
 get '/places/:id/edit' do
-  redirect '/login' unless logged_in?
+  redirect '/login' unless admin?
   @place = Place.find(params[:id])
   erb :edit
 end
 
 put '/places/:id' do
-  redirect '/login' unless logged_in?
+  redirect '/login' unless admin?
   place = Place.find(params[:id])
   place.name = params[:name]
   place.image_url = params[:image_url]
