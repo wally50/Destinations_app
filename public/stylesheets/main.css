@@ -54,14 +54,35 @@ color:#FF0066;
 border: 0 none;
 }
 
+.display_page {
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
 .display_box {
-  height: 200px;
-  width: 200px;
+  width: 15%;
+  /*height: 200px;
+  width:  200px;*/
+}
+
+.disp_img {
+  height: 80%;
+  background-color: black;
+  display: flex;
+  align-items: center;
 }
 
 .display_box a img {
   max-width: 100%;
-    height: auto;
+  max-height: 100%;
+}
+
+.disp_name {
+  padding-top: 5px;
+  max-width: 100%;
 }
 
 .place_name {
@@ -107,6 +128,14 @@ border: 0 none;
   font-weight: bold;
 }
 
+.act_add_box {
+  width: 100px;
+}
+
+.act_add_box button {
+  width: 100px;
+}
+
 .edit_box {
   display: flex;
   flex-direction: column;
@@ -114,6 +143,10 @@ border: 0 none;
 
 .edit_box button {
   width: 60px;
+}
+
+.log_in_page {
+  background-image: url();
 }
 
 

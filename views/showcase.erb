@@ -10,12 +10,13 @@
     <p><span class="activ_head">Activities:  </span><span classs="activ_list"> <% @activities.each do |activity| %>
     <%=  activity.things_to_do %>,
     <% end %> </span> </p>
-
-    <form action="/activities" method="post">
-      <input type="hidden" name="place_id" value="<%= @place.id %>">
-      <textarea name="things_to_do" rows="1" cols="20"></textarea>
-      <button>Add an activity</button>
-    </form>
+    <div class="act_add_box">
+      <form action="/activities" method="post">
+        <input type="hidden" name="place_id" value="<%= @place.id %>">
+        <textarea name="things_to_do" rows="1" cols="20"></textarea>
+        <button>Add activity</button>
+      </form>
+    </div>
   </div>
 </div>
 <div class="show">
@@ -30,7 +31,7 @@
     <div class="">
       <form action="/comments" method="post">
         <input type="hidden" name="place_id" value="<%= @place.id %>">
-        <textarea name="body" rows="6" cols="52"></textarea>
+        <textarea name="body" rows="6" cols="61"></textarea>
         <button>Post comment</button>
       </form>
     </div>

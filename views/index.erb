@@ -1,10 +1,17 @@
 <h2>Hello world</h2>
 
-<% @places.each do |place| %>
-<div class="display_box">
-<a href="/places/<%= place.id %>"><img src="<%= place['image_url'] %>"></a>
-  <a class="place_name" href="/places/<%= place.id %>">
+<div class="display_page">
+  <% @places.each do |place| %>
+  <div class="display_box">
+    <div class="disp_img">
+      <a href="/places/<%= place.id %>"><img src="<%= place['image_url'] %>"></a>
+    </div>
+
+    <div class="disp_name">
+      <a class="place_name" href="/places/<%= place.id %>">
     <%=  place.name %>
-  </a>
+    </a>
+    </div>
+  </div>
+  <% end %>
 </div>
-<% end %>

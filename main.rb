@@ -16,9 +16,9 @@ helpers do
 
   # def admin?
   #   if @user_temp == "wv@ga.co" || @user_checker.email == "wv@ga.co"
-  #     true
+  #     return true
   #   else
-  #     false
+  #     return false
   #   end
   # end
 
