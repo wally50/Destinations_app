@@ -1,6 +1,6 @@
 # settings for activerecord
 
-require 'pg'
+# require 'pg'
 require 'active_record'
 options = {
   adapter: 'postgresql',
