@@ -48,6 +48,7 @@ get '/places/:id' do
   redirect '/login' unless logged_in?
   @place = Place.find(params[:id])
   @comments = Comment.where(place_id: @place.id)
+  @activities = Activity.where(place_id: @place.id)
   erb :showcase
 end
 
@@ -74,19 +75,20 @@ post '/comments' do
   redirect "/places/#{comment.place_id}"
 end
 
-# post '/users' do
-#   user_check = User.find_by(email: params[:email]
-#   if user_check == params[:email]
-#     erb '/sign_up'
-#   else
-#     user = User.new
-#     user.email = params[:email]
-#     user.password = params[:password]
-#     user.save
-#     session[:user_id] = user.id
-#     redirect '/profile'
-#   end
-# end
+post '/users' do
+  user_check = User.find_by(email: params[:email])
+  if user_check.email == params[:email]
+    @new_user_marker = 1
+    erb :sign_up
+  else
+    user = User.new
+    user.email = params[:email]
+    user.password = params[:password]
+    user.save
+    session[:user_id] = user.id
+    redirect '/'
+  end
+end
 
 get '/sign_up' do
   erb :sign_up

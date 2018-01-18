@@ -64,8 +64,20 @@ border: 0 none;
   text-decoration: none;
 }
 
+.show {
+  width: 100%;
+  height:auto;
+  display: flex;
+  justify-content: space-around;
+}
+
 .show_image {
-  width: 500px;
+  width: 400px;
+  height: auto;
+}
+
+.show_description {
+  width: 400px;
   height: auto;
 }
 
