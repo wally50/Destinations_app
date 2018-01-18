@@ -1,6 +1,6 @@
 
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require_relative 'db_config'
 require_relative 'models/activity'
 require_relative 'models/comment'
@@ -13,6 +13,10 @@ helpers do
   def current_user
     User.find_by(id: session[:user_id])
   end
+
+  # def admin?
+  #   current_user.email == 'wv@ga.co'?
+  # end
 
   def logged_in?
     !!current_user
@@ -27,6 +31,10 @@ end
 
 get '/login' do
   erb :login
+end
+
+get '/sign_up' do
+  erb :sign_up
 end
 
 post '/session' do
@@ -53,11 +61,13 @@ get '/places/:id' do
 end
 
 get '/places/:id/edit' do
+  redirect '/login' unless logged_in?
   @place = Place.find(params[:id])
   erb :edit
 end
 
 put '/places/:id' do
+  redirect '/login' unless logged_in?
   place = Place.find(params[:id])
   place.name = params[:name]
   place.image_url = params[:image_url]
@@ -68,6 +78,7 @@ put '/places/:id' do
 end
 
 post '/comments' do
+  redirect '/login' unless logged_in?
   comment = Comment.new
   comment.body = params[:body]
   comment.place_id = params[:place_id]
@@ -90,9 +101,33 @@ post '/users' do
   end
 end
 
-get '/sign_up' do
-  erb :sign_up
+post '/activities' do
+  redirect '/login' unless logged_in?
+  activity = Activity.new
+  activity.things_to_do = params[:things_to_do]
+  activity.place_id = params[:place_id]
+  activity.save
+  redirect '/'
 end
+
+# get '/places/:id/edit' do
+#   redirect '/login' unless logged_in?
+#   @place = Place.find(params[:id])
+#   erb :new_dest
+# end
+
+post 'places' do
+  redirect '/login' unless logged_in?
+  place = Place.new
+  place.name = params[:name]
+  place.image_url = params[:image_url]
+  place.locale = params[:locale]
+  place.description = params[:description]
+  place.save
+  redirect '/'
+end
+
+
 
 
 

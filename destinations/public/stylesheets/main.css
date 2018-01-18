@@ -71,13 +71,17 @@ border: 0 none;
   justify-content: space-around;
 }
 
+.show_image_box {
+  width: 40%;
+}
+
 .show_image {
-  width: 400px;
+  width: 100%;
   height: auto;
 }
 
 .show_description {
-  width: 400px;
+  width: 40%;
   height: auto;
 }
 

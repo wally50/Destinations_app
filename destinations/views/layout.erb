@@ -10,8 +10,13 @@
     <a class ="logo" href="/"><h1>Destinations</h1></a>
 
     <div class="log_box">
+      <!-- <a href="/places/<%#= @place.id %>/edit">New</a> -->
       <% if logged_in? %>
-        logged in as <%= current_user.email %>
+        <!-- <%# if admin? %>
+          logged in as admin
+          <%# else %> -->
+          logged in as <%= current_user.email %>
+          <!-- <%# end %> -->
         <form class="" action="/session" method="post">
         <input type="hidden" name="_method" value="delete">
         <button>logout</button>
@@ -19,9 +24,9 @@
       <% else %>
         <div></div>
         <a href="/login">
-        <button class="login">Login/Sign up</button>
+        <button class="login">Login/Sign up</button></a>
       <% end %>
-      </a>
+
     </div>
   </div>
 <hr>

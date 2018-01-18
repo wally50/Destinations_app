@@ -11,6 +11,7 @@
         <% end %> </span></p>
   </div>
 </div>
+
 <form class="" action="/places/<%= @place.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <button>Delete</button>
@@ -18,14 +19,12 @@
 
 <a href="/places/<%= @place.id %>/edit">Edit</a>
 <div class="">
-
-
-<form action="/comments" method="post">
-  <input type="hidden" name="place_id" value="<%= @place.id %>">
-  <textarea name="body" rows="6" cols="50"></textarea>
-  <button>Post comment</button>
-</form>
-
+  <form action="/comments" method="post">
+    <input type="hidden" name="place_id" value="<%= @place.id %>">
+    <textarea name="body" rows="6" cols="50"></textarea>
+    <button>Post comment</button>
+  </form>
+</div>
 <% @comments.each do |comment| %>
 <hr>
 <p><%=  comment.body %></p>
