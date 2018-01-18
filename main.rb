@@ -15,7 +15,11 @@ helpers do
   end
 
   # def admin?
-  #   current_user.email == 'wv@ga.co'?
+  #   if @user_temp == "wv@ga.co" || @user_checker.email == "wv@ga.co"
+  #     true
+  #   else
+  #     false
+  #   end
   # end
 
   def logged_in?
@@ -88,6 +92,7 @@ end
 
 post '/users' do
   user_check = User.find_by(email: params[:email])
+  @user_checker = user_check
   if user_check.email == params[:email]
     @new_user_marker = 1
     erb :sign_up
@@ -96,27 +101,18 @@ post '/users' do
     user.email = params[:email]
     user.password = params[:password]
     user.save
+    @user_temp = params[:email]
     session[:user_id] = user.id
     redirect '/'
   end
 end
 
-post '/activities' do
+get '/new_dest' do
   redirect '/login' unless logged_in?
-  activity = Activity.new
-  activity.things_to_do = params[:things_to_do]
-  activity.place_id = params[:place_id]
-  activity.save
-  redirect '/'
+  erb :new_dest
 end
 
-# get '/places/:id/edit' do
-#   redirect '/login' unless logged_in?
-#   @place = Place.find(params[:id])
-#   erb :new_dest
-# end
-
-post 'places' do
+post '/places' do
   redirect '/login' unless logged_in?
   place = Place.new
   place.name = params[:name]
@@ -125,6 +121,20 @@ post 'places' do
   place.description = params[:description]
   place.save
   redirect '/'
+end
+
+get '/showcase' do
+  redirect '/login' unless logged_in?
+  erb :showcase
+end
+
+post '/activities' do
+  redirect '/login' unless logged_in?
+  activity = Activity.new
+  activity.things_to_do = params[:things_to_do]
+  activity.place_id = params[:place_id]
+  activity.save
+  redirect "/places/#{params[:place_id]}"
 end
 
 

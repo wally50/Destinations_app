@@ -1,0 +1,3 @@
+pg_dump -Fc --no-acl --no-owner -h localhost -U wally destinations  >db.dump
+
+heroku pg:backups:restore https://github.com/wally50/Destinations_app/blob/master/db.dump?raw=true DATABASE_URL

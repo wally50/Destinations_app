@@ -1,29 +1,42 @@
 <h2><%= @place.name %></h2>
+
 <div class="show">
   <div class="show_image_box">
     <img class="show_image" src="<%= @place.image_url %>" alt="">
   </div>
   <div class="show_description">
     <p><%= @place.description %></p>
-    <p>Location: <%= @place.locale %></p>
-    <p>Activities: <span> <% @activities.each do |activity| %>
-        <p><%=  activity.things_to_do %></p>
-        <% end %> </span></p>
+    <p><span class="loc_head">Location:  </span><%= @place.locale %></p>
+    <p><span class="activ_head">Activities:  </span><span classs="activ_list"> <% @activities.each do |activity| %>
+    <%=  activity.things_to_do %>,
+    <% end %> </span> </p>
+
+    <form action="/activities" method="post">
+      <input type="hidden" name="place_id" value="<%= @place.id %>">
+      <textarea name="things_to_do" rows="1" cols="20"></textarea>
+      <button>Add an activity</button>
+    </form>
   </div>
 </div>
+<div class="show">
+  <div class="comm_box">
+    <form class="" action="/places/<%= @place.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>
 
-<form class="" action="/places/<%= @place.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button>Delete</button>
-</form>
+    <a href="/places/<%= @place.id %>/edit">Edit</a>
 
-<a href="/places/<%= @place.id %>/edit">Edit</a>
-<div class="">
-  <form action="/comments" method="post">
-    <input type="hidden" name="place_id" value="<%= @place.id %>">
-    <textarea name="body" rows="6" cols="50"></textarea>
-    <button>Post comment</button>
-  </form>
+    <div class="">
+      <form action="/comments" method="post">
+        <input type="hidden" name="place_id" value="<%= @place.id %>">
+        <textarea name="body" rows="6" cols="52"></textarea>
+        <button>Post comment</button>
+      </form>
+    </div>
+  </div>
+  <div class="show_description">
+  </div>
 </div>
 <% @comments.each do |comment| %>
 <hr>

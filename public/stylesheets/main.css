@@ -13,7 +13,7 @@ body {
   align-items: flex-end;
 }
 .banner .logo {
-  width: 400px;
+  width: 350px;
   margin: 0;
   font-size: 30px;
   color: green;
@@ -27,7 +27,7 @@ h1 {
 }
 
 .log_box {
-  width: 250px;
+  width: 500px;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,13 @@ h1 {
 
 .log_box a {
   margin-left: : 50px;
+  color: black;
+  text-decoration: none;
   }
+
+.hover_here :hover {
+  color: #FF0066;
+}
 
 hr {
 width: 100%;
@@ -72,7 +78,11 @@ border: 0 none;
 }
 
 .show_image_box {
-  width: 40%;
+  width: 35%;
+}
+
+.comm_box {
+  width: 35%;
 }
 
 .show_image {
@@ -81,8 +91,20 @@ border: 0 none;
 }
 
 .show_description {
-  width: 40%;
+  width: 45%;
   height: auto;
+}
+
+.show_description p {
+  font-size: 18px;
+}
+
+.activ_head {
+  font-weight: bold;
+}
+
+.loc_head {
+  font-weight: bold;
 }
 
 .edit_box {
