@@ -51,6 +51,8 @@ post '/session' do
   end
 end
 
+
+
 delete '/session' do
   session[:user_id] = nil
   redirect '/'

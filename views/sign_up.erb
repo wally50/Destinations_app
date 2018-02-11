@@ -1,11 +1,11 @@
 <div class="sign_up_page_box">
 
 <% if @new_user_marker ==1 %>
-  <h2>Email address already exists.</h2>
+  <h2 class="colour">Email address already exists.</h2>
 
-  <p>Either <span><a href="/login">log in</a></span> or create new account.</p>
+  <p class="colour">Either <span><a  class="hover_here colour"href="/login">log in</a></span> or create new account.</p>
   <% else %>
-    <p>Create new account</p>
+    <p class="colour">Create new account</p>
 <% end %>
 
 <form class="" action="/users" method="post">
@@ -16,6 +16,6 @@
 <p></p>
 <input type="password" name="password" value="" placeholder="password">
 <p></p>
-<button>Submit</button>
+<button class="hover_here colour">Submit</button>
 </form>
 </div>

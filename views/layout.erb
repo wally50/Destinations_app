@@ -7,10 +7,10 @@
 </head>
 <body>
   <div class="banner">
-    <a class ="logo" href="/"><h1>Destinations</h1></a>
+    <a class="logo" href="/"><h1 class="hover_here">Destinations</h1></a>
 
     <div class="log_box">
-      <a class="hover_here" href="/new_dest">Add New Destination</a>
+      <a class="hover_here colour" href="/new_dest">Add New Destination</a>
       <% if logged_in? %>
         <!-- <%# if admin? %>
           logged in as admin
@@ -19,11 +19,11 @@
           <!-- <%# end %> -->
         <form class="" action="/session" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button>logout</button>
+        <button class="hover_here colour">logout</button>
         </form>
       <% else %>
         <div></div>
-        <a class="hover_here" href="/login">Login/Sign up</a>
+        <a class="hover_here colour" href="/login">Login/Sign up</a>
       <% end %>
 
     </div>

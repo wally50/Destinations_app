@@ -14,7 +14,7 @@
       <form action="/activities" method="post">
         <input type="hidden" name="place_id" value="<%= @place.id %>">
         <textarea name="things_to_do" rows="1" cols="20"></textarea>
-        <button>Add activity</button>
+        <button class="hover_here colour">Add activity</button>
       </form>
     </div>
   </div>
@@ -26,10 +26,10 @@
       <% if admin? %>
         <form class="" action="/places/<%= @place.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button>Delete</button>
+          <button class="hover_here colour">Delete</button>
         </form>
 
-        <a href="/places/<%= @place.id %>/edit">Edit</a>
+        <a class="hover_here colour"href="/places/<%= @place.id %>/edit">Edit</a>
       <% end %>
     </div>
 
@@ -37,7 +37,7 @@
       <form action="/comments" method="post">
         <input type="hidden" name="place_id" value="<%= @place.id %>">
         <textarea name="body" rows="6" cols="61"></textarea>
-        <button>Post comment</button>
+        <button class="hover_here colour">Post comment</button>
       </form>
     </div>
   </div>
@@ -46,5 +46,5 @@
 </div>
 <% @comments.each do |comment| %>
 <hr>
-<p><%=  comment.body %></p>
+<p class="colour"><%=  comment.body %></p>
 <% end %>
