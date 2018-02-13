@@ -3,16 +3,16 @@
 <form class="" action="/places/<%= @place.id %>" method="post">
   <div class="edit_box">
     <input type="hidden" name="_method" value="put">
-    <label for="">Name</label>
+    <label class="colour" for="">Name</label>
     <input type="text" name="name" value="<%= @place.name %>">
     <p></p>
-    <label for="">image url</label>
+    <label class="colour" for="">Image url</label>
     <input type="text" name="image_url" value="<%= @place.image_url %>">
     <p></p>
-    <label for="">Locale</label>
+    <label class="colour" for="">Locale</label>
     <input type="text" name="locale" value="<%= @place.locale %>">
     <p></p>
-    <label for="">Description</label>
+    <label class="colour" for="">Description</label>
     <input type="text" name="description" value="<%= @place.description %>">
     <p></p>
     <button class="hover_here colour">Update</button>
